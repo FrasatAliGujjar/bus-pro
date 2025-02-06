@@ -1,0 +1,97 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// ===================================================================================
+
+model Users {
+  Uid       String @id @default(uuid())
+  firstname String
+  lastname  String
+  email     String
+  password  String
+  role      String @default("user")
+}
+
+// ===================================================================================
+
+model Bus {
+  Bid       String @id
+  busname   String
+  busNo     String
+  busFare   String
+  dprtrCity String
+  arvlCity  String
+  dprtrTme  String
+  img_url   String
+}
+
+// ===================================================================================
+
+model Reservation {
+  Rid       String @id @default(uuid())
+  pName     String
+  pEmail    String
+  pPhone    String
+  pAltPhone String
+  pIdCard   String
+
+  Bid       String
+  busname   String
+  dprtrCity String
+  arvlCity  String
+  dprtrTme  String
+  seats     String
+  totalFare String
+}
+
+// ===================================================================================
+
+model BusSeats {
+  Bid  String @id
+  S_1  String @default("true") // Seat 1: Default value is "true"
+  S_2  String @default("true") // Seat 2
+  S_3  String @default("true") // Seat 3
+  S_4  String @default("true") // Seat 4
+  S_5  String @default("true") // Seat 5
+  S_6  String @default("true") // Seat 6
+  S_7  String @default("true") // Seat 7
+  S_8  String @default("true") // Seat 8
+  S_9  String @default("true") // Seat 9
+  S_10 String @default("true") // Seat 10
+  S_11 String @default("true") // Seat 11
+  S_12 String @default("true") // Seat 12
+  S_13 String @default("true") // Seat 13
+  S_14 String @default("true") // Seat 14
+  S_15 String @default("true") // Seat 15
+  S_16 String @default("true") // Seat 16
+  S_17 String @default("true") // Seat 17
+  S_18 String @default("true") // Seat 18
+  S_19 String @default("true") // Seat 19
+  S_20 String @default("true") // Seat 20
+  S_21 String @default("true") // Seat 21
+  S_22 String @default("true") // Seat 22
+  S_23 String @default("true") // Seat 23
+  S_24 String @default("true") // Seat 24
+  S_25 String @default("true") // Seat 25
+  S_26 String @default("true") // Seat 26
+  S_27 String @default("true") // Seat 27
+  S_28 String @default("true") // Seat 28
+  S_29 String @default("true") // Seat 29
+  S_30 String @default("true") // Seat 30
+  S_31 String @default("true") // Seat 31
+  S_32 String @default("true") // Seat 32
+  S_33 String @default("true") // Seat 33
+  S_34 String @default("true") // Seat 34
+  S_35 String @default("true") // Seat 35
+  S_36 String @default("true") // Seat 36
+  S_37 String @default("true") // Seat 37
+}
+
+// ===================================================================================
